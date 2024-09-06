@@ -19,8 +19,8 @@ String device_name = "ESP32-BT-Slave";
 #endif
 
 BluetoothSerial SerialBT;
-RZDriver motorA(FI_1, BI_1);
-RZDriver motorB(FI_2, BI_2);
+RZDriver motorA(FI_2, BI_2);
+RZDriver motorB(FI_1, BI_1);
 
 void setup() {
   // put your setup code here, to run once:
@@ -37,20 +37,20 @@ void loop() {
 
     switch (command) {
       case 'F':  // Move Forward
-        motorA.setSpeed(255);
-        motorB.setSpeed(255);
+        motorA.setSpeed(128);
+        motorB.setSpeed(128);
         break;
       case 'B':  // Move Backward
-        motorA.setSpeed(-255);
-        motorB.setSpeed(-255);
+        motorA.setSpeed(-128);
+        motorB.setSpeed(-128);
         break;
       case 'L':  // Turn Left
-        motorA.setSpeed(-255);
-        motorB.setSpeed(255);
+        motorA.setSpeed(-128);
+        motorB.setSpeed(128);
         break;
       case 'R':  // Turn Right
-        motorA.setSpeed(255);
-        motorB.setSpeed(-255);
+        motorA.setSpeed(128);
+        motorB.setSpeed(-128);
         break;
       case 'S':  // Stop
         motorA.setSpeed(0);
